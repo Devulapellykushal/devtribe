@@ -1,0 +1,45 @@
+.shiny-text {
+  position: relative;
+  background: linear-gradient(90deg, #dc2626, #991b1b, #dc2626);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shine linear infinite;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.shiny-text:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+.shiny-text.disabled {
+  animation: none;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Custom class for navbar */
+.shiny-text.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.shiny-text.navbar-link {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 1rem;
+}

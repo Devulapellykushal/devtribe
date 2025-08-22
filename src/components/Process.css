@@ -1,0 +1,510 @@
+/* Process Section Styles */
+.process {
+  position: relative;
+  padding: 6rem 0;
+  background: #0a0a0a;
+  overflow: hidden;
+}
+
+/* Particles Background */
+.particles-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.particles-background .particles-container {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.process-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 3;
+}
+
+/* Background Pattern */
+.process-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+/* Heading Styles */
+.process-heading {
+  text-align: center;
+  margin-bottom: 5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.process-heading.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.process-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  line-height: 1.1;
+}
+
+.process-title-our {
+  color: #dc2626;
+  margin-right: 0.5rem;
+}
+
+.process-title-process {
+  color: #ffffff;
+}
+
+.process-subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Timeline Container */
+.timeline-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Central Timeline Line */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: rgba(220, 38, 38, 0.3);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.timeline-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: linear-gradient(to bottom, #dc2626, #991b1b);
+  border-radius: 2px;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 1s ease-out;
+}
+
+.timeline-progress.animate {
+  transform: scaleY(1);
+  animation: timelineGlow 2s ease-out forwards;
+}
+
+@keyframes timelineGlow {
+  0% {
+    box-shadow: 0 0 0 rgba(220, 38, 38, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(220, 38, 38, 0.3);
+  }
+}
+
+@keyframes timelineProgress {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+/* Timeline Steps */
+.timeline-step {
+  position: relative;
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+/* Smooth transition for all step elements */
+.timeline-step * {
+  transition: all 0.5s ease;
+}
+
+.timeline-step.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Downward scroll animation delays */
+.timeline-step.step-1.animate {
+  transition-delay: 0.2s;
+}
+
+.timeline-step.step-2.animate {
+  transition-delay: 0.4s;
+}
+
+.timeline-step.step-3.animate {
+  transition-delay: 0.6s;
+}
+
+/* Upward scroll animation - reverse order */
+.timeline-step.step-1.animate.upward {
+  transition-delay: 0.6s;
+}
+
+.timeline-step.step-2.animate.upward {
+  transition-delay: 0.4s;
+}
+
+.timeline-step.step-3.animate.upward {
+  transition-delay: 0.2s;
+}
+
+/* Step Nodes */
+.step-node {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 60px;
+  height: 60px;
+  background: #ffffff;
+  border: 2px solid #dc2626;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 3;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  transition: all 0.6s ease-out;
+}
+
+.step-node.animate {
+  transform: translate(-50%, -50%) scale(1);
+  animation: nodeGlow 2s ease-out forwards, nodePulse 2s ease-in-out infinite 2s;
+}
+
+@keyframes nodeGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    background: #ffffff;
+    border-color: #dc2626;
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.8), 0 0 100px rgba(255, 255, 255, 0.4);
+    background: #ffffff;
+    border-color: #ef4444;
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    background: #ffffff;
+    border-color: #dc2626;
+  }
+}
+
+@keyframes nodePulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+  }
+}
+
+.step-number {
+  color: #dc2626;
+  font-size: 1.25rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+/* Step number bright glow when step becomes visible */
+.step-node.animate .step-number {
+  animation: numberGlow 2s ease-out forwards;
+}
+
+@keyframes numberGlow {
+  0% {
+    color: #dc2626;
+    text-shadow: 0 0 0 rgba(220, 38, 38, 0);
+  }
+  50% {
+    color: #dc2626;
+    text-shadow: 0 0 20px rgba(220, 38, 38, 0.9), 0 0 40px rgba(220, 38, 38, 0.6);
+  }
+  100% {
+    color: #dc2626;
+    text-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
+  }
+}
+
+/* Step Cards */
+.step-card {
+  position: relative;
+  width: 350px;
+  padding: 2rem;
+  background: rgba(220, 38, 38, 0.05);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(220, 38, 38, 0.4);
+  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
+}
+
+/* Enhanced hover effect for active step cards */
+.step-card.animate:hover {
+  transform: translateY(-8px);
+  border-color: rgba(220, 38, 38, 0.9);
+  box-shadow: 0 15px 40px rgba(220, 38, 38, 0.5), 0 0 60px rgba(220, 38, 38, 0.3);
+  background: rgba(220, 38, 38, 0.18);
+}
+
+/* Glow effect when step becomes visible */
+.step-card.animate {
+  animation: stepGlow 2s ease-out forwards;
+}
+
+/* Active step card - highlighted and bright */
+.step-card.animate {
+  border-color: rgba(220, 38, 38, 0.6);
+  background: rgba(220, 38, 38, 0.12);
+  box-shadow: 0 0 25px rgba(220, 38, 38, 0.4);
+}
+
+/* Same effects for upward scroll */
+.step-card.animate.upward {
+  border-color: rgba(220, 38, 38, 0.6);
+  background: rgba(220, 38, 38, 0.12);
+  box-shadow: 0 0 25px rgba(220, 38, 38, 0.4);
+}
+
+/* Remaining steps - dull and muted */
+.timeline-step:not(.animate) .step-card {
+  opacity: 0.3;
+  border-color: rgba(220, 38, 38, 0.08);
+  background: rgba(220, 38, 38, 0.01);
+  box-shadow: none;
+  transform: scale(0.98);
+  transition: all 0.5s ease;
+}
+
+.timeline-step:not(.animate) .step-node {
+  opacity: 0.3;
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(220, 38, 38, 0.4);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+  transform: scale(0.95);
+}
+
+.timeline-step:not(.animate) .step-title {
+  color: rgba(220, 38, 38, 0.4);
+}
+
+.timeline-step:not(.animate) .step-description {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.timeline-step:not(.animate) .step-icon {
+  opacity: 0.3;
+  background: rgba(220, 38, 38, 0.05);
+  color: rgba(220, 38, 38, 0.4);
+}
+
+@keyframes stepGlow {
+  0% {
+    border-color: rgba(220, 38, 38, 0.2);
+    box-shadow: 0 0 0 rgba(220, 38, 38, 0);
+    background: rgba(220, 38, 38, 0.05);
+  }
+  50% {
+    border-color: rgba(220, 38, 38, 0.8);
+    box-shadow: 0 0 30px rgba(220, 38, 38, 0.6), 0 0 60px rgba(220, 38, 38, 0.3);
+    background: rgba(220, 38, 38, 0.15);
+  }
+  100% {
+    border-color: rgba(220, 38, 38, 0.6);
+    box-shadow: 0 0 25px rgba(220, 38, 38, 0.4);
+    background: rgba(220, 38, 38, 0.12);
+  }
+}
+
+.step-left {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.step-right {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* Step Content */
+.step-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(220, 38, 38, 0.1);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  color: #dc2626;
+  transition: all 0.3s ease;
+}
+
+/* Icon glow effect when step becomes visible */
+.step-card.animate .step-icon {
+  animation: iconGlow 2s ease-out forwards;
+}
+
+@keyframes iconGlow {
+  0% {
+    background: rgba(220, 38, 38, 0.1);
+    color: #dc2626;
+    box-shadow: 0 0 0 rgba(220, 38, 38, 0);
+  }
+  50% {
+    background: rgba(220, 38, 38, 0.3);
+    color: #ef4444;
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.6);
+  }
+  100% {
+    background: rgba(220, 38, 38, 0.15);
+    color: #dc2626;
+    box-shadow: 0 0 10px rgba(220, 38, 38, 0.3);
+  }
+}
+
+.step-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.step-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #dc2626;
+  margin: 0 0 0.75rem 0;
+  transition: all 0.3s ease;
+}
+
+/* Title glow effect when step becomes visible */
+.step-card.animate .step-title {
+  animation: titleGlow 2s ease-out forwards;
+}
+
+@keyframes titleGlow {
+  0% {
+    color: #dc2626;
+    text-shadow: 0 0 0 rgba(220, 38, 38, 0);
+  }
+  50% {
+    color: #ef4444;
+    text-shadow: 0 0 20px rgba(220, 38, 38, 0.8);
+  }
+  100% {
+    color: #dc2626;
+    text-shadow: 0 0 10px rgba(220, 38, 38, 0.4);
+  }
+}
+
+.step-description {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .process {
+    padding: 4rem 0;
+  }
+  
+  .process-title {
+    font-size: 2.5rem;
+  }
+  
+  .process-subtitle {
+    font-size: 1.125rem;
+  }
+  
+  .timeline-line {
+    left: 2rem;
+    transform: none;
+  }
+  
+  .step-node {
+    left: 2rem;
+    transform: translateY(-50%);
+  }
+  
+  .step-card {
+    width: calc(100% - 4rem);
+    margin-left: 4rem;
+    margin-right: 0;
+  }
+  
+  .step-left,
+  .step-right {
+    margin-left: 4rem;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .process-container {
+    padding: 0 1rem;
+  }
+  
+  .process-title {
+    font-size: 2rem;
+  }
+  
+  .step-card {
+    width: calc(100% - 3rem);
+    margin-left: 3rem;
+    padding: 1.5rem;
+  }
+  
+  .step-left,
+  .step-right {
+    margin-left: 3rem;
+  }
+  
+  .step-title {
+    font-size: 1.25rem;
+  }
+  
+  .step-description {
+    font-size: 0.9rem;
+  }
+}
+
+

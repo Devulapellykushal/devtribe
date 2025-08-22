@@ -1,0 +1,88 @@
+:root {
+  /* Red Theme Colors */
+  --red-primary: #dc2626;
+  --red-secondary: #ef4444;
+  --red-accent: #fca5a5;
+  --red-light: #fecaca;
+  --red-dark: #991b1b;
+  --red-darker: #7f1d1d;
+
+  /* Dark Black Theme Colors */
+  --black-primary: #0f0f0f;
+  --black-secondary: #1a1a1a;
+  --black-tertiary: #262626;
+  --black-accent: #404040;
+  --black-light: #525252;
+  --black-lighter: #737373;
+
+  /* Neutral Colors */
+  --white: #ffffff;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+
+  /* Text Colors */
+  --text-primary: var(--white);
+  --text-secondary: var(--gray-300);
+  --text-muted: var(--gray-400);
+  --text-inverse: var(--black-primary);
+
+  /* Background Colors */
+  --bg-primary: var(--black-primary);
+  --bg-secondary: var(--black-secondary);
+  --bg-tertiary: var(--black-tertiary);
+  --bg-accent: var(--black-accent);
+
+  /* Border Colors */
+  --border-primary: var(--black-accent);
+  --border-secondary: var(--black-light);
+  --border-accent: var(--red-primary);
+
+  /* Shadow Colors */
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.25);
+  --shadow-heavy: rgba(0, 0, 0, 0.5);
+
+  /* Status Colors */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: var(--red-primary);
+  --info: #3b82f6;
+}
+
+/* Dark Theme Class */
+.theme-dark {
+  --bg-primary: var(--black-primary);
+  --bg-secondary: var(--black-secondary);
+  --bg-tertiary: var(--black-tertiary);
+  --bg-accent: var(--black-accent);
+  
+  --text-primary: var(--white);
+  --text-secondary: var(--gray-300);
+  --text-muted: var(--gray-400);
+  
+  --border-primary: var(--black-accent);
+  --border-secondary: var(--black-light);
+}
+
+/* Red Theme Class */
+.theme-red {
+  --bg-primary: var(--red-darker);
+  --bg-secondary: var(--red-dark);
+  --bg-tertiary: var(--red-primary);
+  --bg-accent: var(--red-secondary);
+  
+  --text-primary: var(--white);
+  --text-secondary: var(--red-light);
+  --text-muted: var(--red-accent);
+  
+  --border-primary: var(--red-secondary);
+  --border-secondary: var(--red-accent);
+}

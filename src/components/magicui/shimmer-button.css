@@ -1,0 +1,119 @@
+.shimmer-button {
+  position: relative;
+  background: transparent;
+  border: 2px solid #dc2626;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  font-family: inherit;
+  min-width: 200px;
+}
+
+.shimmer-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(220, 38, 38, 0.4);
+  border-color: #ef4444;
+}
+
+.shimmer-button:active {
+  transform: translateY(-1px);
+}
+
+.shimmer-button.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.shimmer-button.disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Shimmer Effect */
+.shimmer-effect {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(220, 38, 38, 0.4),
+    rgba(239, 68, 68, 0.6),
+    rgba(220, 38, 38, 0.4),
+    transparent
+  );
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Button Content */
+.button-content {
+  position: relative;
+  z-index: 2;
+  display: block;
+  text-align: center;
+  white-space: nowrap;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+/* Custom classes for different sizes */
+.shimmer-button.large {
+  padding: 1.25rem 2.5rem;
+  font-size: 1.25rem;
+  min-width: 250px;
+}
+
+.shimmer-button.small {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  min-width: 150px;
+}
+
+/* Shadow variations */
+.shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(220, 38, 38, 0.25);
+}
+
+.shadow-2xl:hover {
+  box-shadow: 0 25px 50px -12px rgba(220, 38, 38, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .shimmer-button {
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+    min-width: 180px;
+  }
+  
+  .shimmer-button.large {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .shimmer-button {
+    width: 100%;
+    max-width: 300px;
+    min-width: auto;
+  }
+}
