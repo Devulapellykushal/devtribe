@@ -1,10 +1,27 @@
 import React from 'react';
 import './Hero.css';
 import { ShimmerButton } from './magicui/shimmer-button';
+import LightRays from './LightRays';
 
 const Hero: React.FC = () => {
   return (
     <section className="hero" id="home">
+      {/* LightRays Effect - Only for Hero Section */}
+      <div className="hero-light-rays-container">
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#dc2626"
+          raysSpeed={1.2}
+          lightSpread={0.8}
+          rayLength={1.0}
+          followMouse={true}
+          mouseInfluence={0.15}
+          noiseAmount={0.05}
+          distortion={0.03}
+          className="hero-light-rays"
+        />
+      </div>
+      
       <div className="hero-container">
         <div className="hero-content">
           <h1 className="hero-title">

@@ -63,35 +63,38 @@
   cursor: pointer;
   overflow: hidden;
   border-radius: 0.75rem;
-  border: 2px solid;
+  border: none; /* Removed border */
   padding: 1.5rem;
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   
-  /* Light theme */
-  border-color: #8B0000; /* Dark red border */
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  /* Semi-sheer transparent background */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .review-card:hover {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  background: rgba(255, 255, 255, 0.12);
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(139, 0, 0, 0.3);
-  border-color: #DC143C; /* Crimson red border on hover */
+  box-shadow: 0 10px 25px rgba(139, 0, 0, 0.2);
+  border: none; /* No border on hover */
 }
 
 /* Dark theme */
 .dark .review-card {
-  border-color: #8B0000; /* Dark red border */
-  background-color: rgba(255, 255, 255, 0.1);
+  border: none; /* No border */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .dark .review-card:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 10px 25px rgba(139, 0, 0, 0.3);
-  border-color: #DC143C; /* Crimson red border on hover */
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 25px rgba(139, 0, 0, 0.2);
+  border: none; /* No border on hover */
 }
 
 .review-header {
@@ -107,7 +110,7 @@
   width: 32px;
   height: 32px;
   object-fit: cover;
-  border: 2px solid #8B0000; /* Dark red border */
+  border: none; /* Removed border */
   transition: all 0.3s ease;
 }
 

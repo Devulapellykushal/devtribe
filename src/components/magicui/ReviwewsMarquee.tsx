@@ -1,6 +1,5 @@
 // src/components/ReviewsMarquee.tsx
 import { Marquee } from "./marquee";
-import { cn } from "../../lib/util";
 import "./marquee-reviews.css";
 
 const reviews = [

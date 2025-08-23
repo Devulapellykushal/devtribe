@@ -3,7 +3,6 @@ import CardNav from './components/CardNav';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
-import LightRays from './components/LightRays'; // Added LightRays import
 import ReviewsMarquee from './components/magicui/ReviwewsMarquee';
 import Particles from './components/Particles';
 import Process from './components/Process';
@@ -49,30 +48,6 @@ const App = () => {
 
   return (
     <div className={`App theme-${theme}`}>
-      {/* LightRays Effect - Covers Hero + Services Sections */}
-      <div style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100vw',
-        height: '100vh',
-        zIndex: 2,
-        pointerEvents: 'none',
-      }}>
-        <LightRays
-          raysOrigin="top-center"
-          raysColor="#dc2626"
-          raysSpeed={1.2}
-          lightSpread={0.8}
-          rayLength={1.0}
-          followMouse={true}
-          mouseInfluence={0.15}
-          noiseAmount={0.05}
-          distortion={0.03}
-          className="hero-services-light-rays"
-        />
-      </div>
-      
       <CardNav
         logo={logo}
         logoAlt="DevTribe Logo"
@@ -95,7 +70,7 @@ const App = () => {
           left: 0,
           width: '100vw',
           height: '100vh',
-          zIndex: 1,
+          zIndex: 0, // Lower z-index to avoid conflicts
           pointerEvents: 'none',
         }}>
           <Particles
