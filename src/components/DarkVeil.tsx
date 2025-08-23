@@ -1,5 +1,5 @@
-import { useRef, useEffect } from "react";
-import { Renderer, Program, Mesh, Triangle, Vec2 } from "ogl";
+import { Mesh, Program, Renderer, Triangle, Vec2 } from "ogl";
+import { useEffect, useRef } from "react";
 
 const vertex = `
 attribute vec2 position;
@@ -65,6 +65,21 @@ void mainImage(out vec4 fragColor,in vec2 fragCoord){
 
 void main(){
     vec4 col;mainImage(col,gl_FragCoord.xy);
+    
+    // Apply DevTribe color scheme: Red and Black (simplified to reduce glitching)
+    vec3 devtribeRed = vec3(0.86, 0.15, 0.15); // #dc2626
+    vec3 devtribeDarkRed = vec3(0.6, 0.11, 0.11); // #991b1b
+    vec3 devtribeBlack = vec3(0.06, 0.06, 0.06); // #0f0f0f
+    
+    // Simplified color mixing to reduce glitching
+    float intensity = (col.r + col.g + col.b) / 3.0;
+    
+    // Smooth transition between colors
+    vec3 finalColor = mix(devtribeBlack, devtribeRed, smoothstep(0.0, 1.0, intensity));
+    finalColor = mix(finalColor, devtribeDarkRed, smoothstep(0.3, 0.7, intensity));
+    
+    col.rgb = finalColor;
+    
     col.rgb=hueShiftRGB(col.rgb,uHueShift);
     float scanline_val=sin(gl_FragCoord.y*uScanFreq)*0.5+0.5;
     col.rgb*=1.-(scanline_val*scanline_val)*uScan;
@@ -84,12 +99,12 @@ interface DarkVeilProps {
 }
 
 export default function DarkVeil({
-  hueShift = 0,
-  noiseIntensity = 0,
-  scanlineIntensity = 0,
-  speed = 0.5,
-  scanlineFrequency = 0,
-  warpAmount = 0,
+  hueShift = 0, // Keep at 0 for red/black theme
+  noiseIntensity = 0.02, // Very low noise to reduce glitching
+  scanlineIntensity = 0.02, // Very subtle scanlines
+  speed = 0.2, // Even slower for smoother movement
+  scanlineFrequency = 0.3, // Lower frequency for stability
+  warpAmount = 0.01, // Very subtle warp to reduce shaking
   resolutionScale = 1,
 }: DarkVeilProps) {
   const ref = useRef<HTMLCanvasElement>(null);

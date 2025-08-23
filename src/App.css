@@ -6,7 +6,21 @@
 }
 
 main {
-  padding-top: 80px; /* Account for fixed header */
+  padding-top: 0; /* Removed padding since CardNav is absolutely positioned */
+}
+
+/* LightRays App-Level Styling */
+.app-light-rays {
+  opacity: 0.8;
+  mix-blend-mode: screen;
+}
+
+.theme-red .app-light-rays {
+  opacity: 0.9;
+}
+
+.theme-dark .app-light-rays {
+  opacity: 0.7;
 }
 
 /* Smooth scrolling for anchor links */
@@ -56,4 +70,30 @@ input:focus,
 textarea:focus {
   outline: 2px solid #dc2626;
   outline-offset: 2px;
+}
+
+.app-particles {
+  opacity: 0.6;
+  mix-blend-mode: screen;
+}
+
+.theme-red .app-particles {
+  opacity: 0.7;
+}
+
+.theme-dark .app-particles {
+  opacity: 0.5;
+}
+
+.hero-services-light-rays {
+  opacity: 0.8;
+  mix-blend-mode: screen;
+}
+
+.theme-red .hero-services-light-rays {
+  opacity: 0.9;
+}
+
+.theme-dark .hero-services-light-rays {
+  opacity: 0.7;
 }

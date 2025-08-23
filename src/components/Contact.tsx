@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Contact.css';
-import Test from './test';
+import DarkVeil from './DarkVeil';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -25,6 +25,11 @@ const Contact: React.FC = () => {
 
   return (
     <section className="contact" id="contact">
+      {/* DarkVeil Background */}
+      <div className="contact-darkveil-container">
+        <DarkVeil />
+      </div>
+      
       <div className="contact-container">
         <div className="contact-header">
           <h2 className="contact-title">Let's Build Something Amazing</h2>
@@ -47,7 +52,7 @@ const Contact: React.FC = () => {
               <div className="contact-icon">📧</div>
               <div>
                 <h3>Email</h3>
-                <p>hello@scalvion.com</p>
+                <p>hello@devtribe.com</p>
               </div>
             </div>
 
@@ -118,10 +123,7 @@ const Contact: React.FC = () => {
           </form>
         </div>
       </div>
-
-      
     </section>
-
   );
 };
 

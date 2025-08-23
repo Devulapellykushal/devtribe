@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './Process.css';
 import Particles from './Particles';
+import './Process.css';
 
 const Process: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);

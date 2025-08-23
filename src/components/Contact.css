@@ -1,23 +1,26 @@
 .contact {
   padding: 6rem 0;
-  background: #0f0f0f;
+  background: linear-gradient(180deg, #0f0f0f 0%, #1f1f1f 50%, #991b1b 80%, #dc2626 100%);
   position: relative;
+  overflow: hidden;
 }
 
-.contact::before {
-  content: '';
+.contact-darkveil-container {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #dc2626, transparent);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .contact-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 .contact-header {
@@ -30,17 +33,15 @@
   font-weight: 800;
   color: white;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #dc2626, #991b1b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  text-align: center;
 }
 
 .contact-subtitle {
   font-size: 1.25rem;
-  color: #d1d5db;
+  color: #e5e7eb;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0 auto 3rem;
+  text-align: center;
   line-height: 1.6;
 }
 
@@ -59,13 +60,13 @@
 
 .contact-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
   padding: 1.5rem;
-  background: rgba(26, 26, 26, 0.8);
+  background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(220, 38, 38, 0.2);
-  border-radius: 15px;
-  transition: all 0.3s ease;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
 }
 
 .contact-item:hover {
@@ -75,37 +76,28 @@
 }
 
 .contact-icon {
-  font-size: 2rem;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(220, 38, 38, 0.1);
-  border-radius: 50%;
+  font-size: 1.5rem;
   flex-shrink: 0;
 }
 
 .contact-item h3 {
-  color: white;
+  color: #dc2626;
   font-size: 1.1rem;
   font-weight: 600;
-  margin: 0 0 0.25rem 0;
+  margin-bottom: 0.5rem;
 }
 
 .contact-item p {
-  color: #9ca3af;
+  color: #e5e7eb;
+  font-size: 1rem;
   margin: 0;
-  font-size: 0.95rem;
 }
 
 /* Form Styles */
 .contact-form {
-  background: rgba(26, 26, 26, 0.8);
-  border: 1px solid rgba(220, 38, 38, 0.2);
-  border-radius: 20px;
-  padding: 2rem;
-  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .form-group {
@@ -116,18 +108,17 @@
 .form-group textarea {
   width: 100%;
   padding: 1rem;
-  background: rgba(15, 15, 15, 0.8);
   border: 1px solid rgba(220, 38, 38, 0.3);
-  border-radius: 10px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.5);
   color: white;
   font-size: 1rem;
   transition: all 0.3s ease;
-  font-family: inherit;
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: #6b7280;
+  color: #9ca3af;
 }
 
 .form-group input:focus,
@@ -135,7 +126,6 @@
   outline: none;
   border-color: #dc2626;
   box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
-  background: rgba(15, 15, 15, 0.9);
 }
 
 .form-group textarea {
@@ -144,18 +134,16 @@
 }
 
 .submit-button {
-  width: 100%;
   background: linear-gradient(135deg, #dc2626, #991b1b);
-  border: none;
   color: white;
+  border: none;
   padding: 1rem 2rem;
-  border-radius: 10px;
+  border-radius: 8px;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  margin-top: 1rem;
 }
 
 .submit-button::before {
@@ -174,8 +162,9 @@
 }
 
 .submit-button:hover {
+  background: linear-gradient(135deg, #b91c1c, #7f1d1d);
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
 }
 
 .submit-button:active {
@@ -197,8 +186,20 @@
     gap: 3rem;
   }
   
-  .contact-item:hover {
-    transform: translateY(-5px);
+  .contact-title {
+    font-size: 2.5rem;
+  }
+  
+  .contact-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .contact-item {
+    padding: 1.25rem;
+  }
+  
+  .submit-button {
+    width: 100%;
   }
 }
 
@@ -208,15 +209,10 @@
   }
   
   .contact-subtitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   
-  .contact-form {
-    padding: 1.5rem;
-  }
-  
-  .form-group input,
-  .form-group textarea {
-    padding: 0.875rem;
+  .contact-item {
+    padding: 1rem;
   }
 }
