@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useTheme } from '../contexts/ThemeContext';
 import './Contact.css';
 import DarkVeil from './DarkVeil';
 
 const Contact: React.FC = () => {
+  const { theme } = useTheme();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,7 +29,7 @@ const Contact: React.FC = () => {
     <section className="contact" id="contact">
       {/* DarkVeil Background */}
       <div className="contact-darkveil-container">
-        <DarkVeil />
+        <DarkVeil theme={theme} />
       </div>
       
       <div className="contact-container">

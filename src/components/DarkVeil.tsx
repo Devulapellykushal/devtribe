@@ -96,19 +96,32 @@ interface DarkVeilProps {
   scanlineFrequency?: number;
   warpAmount?: number;
   resolutionScale?: number;
+  theme?: 'dark' | 'red';
 }
 
 export default function DarkVeil({
   hueShift = 0, // Keep at 0 for red/black theme
-  noiseIntensity = 0.02, // Very low noise to reduce glitching
-  scanlineIntensity = 0.02, // Very subtle scanlines
-  speed = 0.2, // Even slower for smoother movement
-  scanlineFrequency = 0.3, // Lower frequency for stability
-  warpAmount = 0.01, // Very subtle warp to reduce shaking
+  noiseIntensity = 0.01, // Much lower noise for smoother background
+  scanlineIntensity = 0.015, // Very subtle scanlines
+  speed = 0.15, // Slower for smoother movement
+  scanlineFrequency = 0.2, // Lower frequency for less grid-like appearance
+  warpAmount = 0.008, // Very subtle warp to reduce disturbance
   resolutionScale = 1,
+  theme = 'dark', // Default to dark theme
 }: DarkVeilProps) {
   const ref = useRef<HTMLCanvasElement>(null);
   
+  // Theme-aware property adjustments
+  const adjustedProps = {
+    hueShift: theme === 'dark' ? hueShift : hueShift + 30, // Slight red shift for red theme
+    noiseIntensity: theme === 'dark' ? noiseIntensity : noiseIntensity * 0.5, // Even less noise in red theme
+    scanlineIntensity: theme === 'dark' ? scanlineIntensity : scanlineIntensity * 0.3, // Very subtle in red theme
+    speed: theme === 'dark' ? speed : speed * 0.8, // Slower in red theme
+    scanlineFrequency: theme === 'dark' ? scanlineFrequency : scanlineFrequency * 0.5, // Much lower in red theme
+    warpAmount: theme === 'dark' ? warpAmount : warpAmount * 0.5, // Minimal warp in red theme
+    resolutionScale: resolutionScale
+  };
+
   useEffect(() => {
     const canvas = ref.current;
     if (!canvas) return;
@@ -130,11 +143,11 @@ export default function DarkVeil({
       uniforms: {
         uTime: { value: 0 },
         uResolution: { value: new Vec2() },
-        uHueShift: { value: hueShift },
-        uNoise: { value: noiseIntensity },
-        uScan: { value: scanlineIntensity },
-        uScanFreq: { value: scanlineFrequency },
-        uWarp: { value: warpAmount },
+        uHueShift: { value: adjustedProps.hueShift },
+        uNoise: { value: adjustedProps.noiseIntensity },
+        uScan: { value: adjustedProps.scanlineIntensity },
+        uScanFreq: { value: adjustedProps.scanlineFrequency },
+        uWarp: { value: adjustedProps.warpAmount },
       },
     });
 
@@ -143,7 +156,7 @@ export default function DarkVeil({
     const resize = () => {
       const w = parent.clientWidth;
       const h = parent.clientHeight;
-      renderer.setSize(w * resolutionScale, h * resolutionScale);
+      renderer.setSize(w * adjustedProps.resolutionScale, h * adjustedProps.resolutionScale);
       program.uniforms.uResolution.value.set(w, h);
     };
 
@@ -155,12 +168,12 @@ export default function DarkVeil({
 
     const loop = () => {
       program.uniforms.uTime.value =
-        ((performance.now() - start) / 1000) * speed;
-      program.uniforms.uHueShift.value = hueShift;
-      program.uniforms.uNoise.value = noiseIntensity;
-      program.uniforms.uScan.value = scanlineIntensity;
-      program.uniforms.uScanFreq.value = scanlineFrequency;
-      program.uniforms.uWarp.value = warpAmount;
+        ((performance.now() - start) / 1000) * adjustedProps.speed;
+      program.uniforms.uHueShift.value = adjustedProps.hueShift;
+      program.uniforms.uNoise.value = adjustedProps.noiseIntensity;
+      program.uniforms.uScan.value = adjustedProps.scanlineIntensity;
+      program.uniforms.uScanFreq.value = adjustedProps.scanlineFrequency;
+      program.uniforms.uWarp.value = adjustedProps.warpAmount;
       renderer.render({ scene: mesh });
       frame = requestAnimationFrame(loop);
     };
@@ -179,6 +192,7 @@ export default function DarkVeil({
     scanlineFrequency,
     warpAmount,
     resolutionScale,
+    theme,
   ]);
   
   return (

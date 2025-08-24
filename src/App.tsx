@@ -4,6 +4,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
 import ReviewsMarquee from './components/magicui/ReviwewsMarquee';
+import OrbitingCirclesDemo from './components/OrbitingCirclesDemo';
 import Particles from './components/Particles';
 import Process from './components/Process';
 import Services from './components/Services';
@@ -48,6 +49,17 @@ const App = () => {
 
   return (
     <div className={`App theme-${theme}`}>
+      {/* Global Particles Background - Last Layer */}
+      <div className="app-particles-background">
+        <Particles
+          speed={0.5}
+          particleCount={100}
+          particleBaseSize={2}
+          particleColors={["#dc2626", "#991b1b", "#7f1d1d"]}
+          className="app-particles"
+        />
+      </div>
+
       <CardNav
         logo={logo}
         logoAlt="DevTribe Logo"
@@ -61,33 +73,8 @@ const App = () => {
       
       <main>
         <Hero />
+        <OrbitingCirclesDemo />
         <Services />
-        
-        {/* Particles Background - After Hero and Services */}
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-          zIndex: 0, // Lower z-index to avoid conflicts
-          pointerEvents: 'none',
-        }}>
-          <Particles
-            particleCount={150}
-            particleSpread={8}
-            speed={0.05}
-            particleColors={["#dc2626", "#991b1b", "#ffffff"]}
-            moveParticlesOnHover={true}
-            particleHoverFactor={2}
-            alphaParticles={true}
-            particleBaseSize={80}
-            sizeRandomness={0.5}
-            cameraDistance={15}
-            disableRotation={false}
-            className="app-particles"
-          />
-        </div>
         
         <Process />
         <Contact />

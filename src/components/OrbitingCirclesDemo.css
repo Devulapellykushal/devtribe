@@ -1,0 +1,99 @@
+.orbiting-section {
+  min-height: 100vh; /* Make it at least viewport height */
+  display: flex; /* Use flexbox for vertical distribution */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Center content vertically if space allows */
+  align-items: center; /* Center content horizontally */
+  padding: 4rem 0; /* Keep padding, but it will be within the flex container */
+  background: linear-gradient(180deg, #0f0f0f 0%, #1f1f1f 50%, #991b1b 80%, #dc2626 100%);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box; /* Ensure padding is included in height */
+}
+
+.orbiting-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+  display: flex; /* Make container a flex item */
+  flex-direction: column; /* Stack children vertically */
+  flex-grow: 1; /* Allow it to grow and fill space */
+  width: 100%; /* Ensure it takes full width */
+  justify-content: center; /* Center content within the container */
+}
+
+.orbiting-content {
+  margin-bottom: 3rem; /* Keep existing margin */
+  /* No specific height, let it take natural height */
+}
+
+.orbiting-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
+}
+
+.orbiting-subtitle {
+  font-size: 1.25rem;
+  color: #e5e5e5;
+  opacity: 0.8;
+}
+
+.orbiting-demo {
+  position: relative;
+  flex-grow: 1; /* Allow it to grow and fill remaining vertical space */
+  height: 100%; /* Take full height of its flex parent */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Center both circles at the same point */
+.orbiting-demo .orbiting-circles-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-icon {
+  color: #ffffff;
+  filter: drop-shadow(0 0 10px rgba(220, 38, 38, 0.6));
+  transition: all 0.3s ease;
+}
+
+.tech-icon:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 20px rgba(220, 38, 38, 0.8));
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .orbiting-section {
+    padding: 4rem 0;
+  }
+  
+  .orbiting-container {
+    padding: 0 1rem;
+  }
+  
+  .orbiting-title {
+    font-size: 2rem;
+  }
+  
+  .orbiting-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .orbiting-demo {
+    height: 400px;
+  }
+}

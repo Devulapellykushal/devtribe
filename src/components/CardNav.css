@@ -5,7 +5,7 @@
   transform: translateX(-50%);
   width: 90%;
   max-width: 800px;
-  z-index: 1000; /* Very high z-index to ensure it's above everything */
+  z-index: 99;
   box-sizing: border-box;
 }
 

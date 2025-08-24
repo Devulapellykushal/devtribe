@@ -1,0 +1,120 @@
+.orbiting-circles-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orbiting-circles-wrapper svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.orbiting-circles-wrapper svg circle {
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 1;
+  fill: none;
+}
+
+.animate-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: 50% 50%;
+}
+
+/* Outer circle - 5 icons orbiting at 160px radius */
+.outer-circle .animate-orbit:nth-child(1) { 
+  animation: orbit-outer-1 20s linear infinite; 
+}
+.outer-circle .animate-orbit:nth-child(2) { 
+  animation: orbit-outer-2 20s linear infinite; 
+}
+.outer-circle .animate-orbit:nth-child(3) { 
+  animation: orbit-outer-3 20s linear infinite; 
+}
+.outer-circle .animate-orbit:nth-child(4) { 
+  animation: orbit-outer-4 20s linear infinite; 
+}
+.outer-circle .animate-orbit:nth-child(5) { 
+  animation: orbit-outer-5 20s linear infinite; 
+}
+
+/* Inner circle - 5 icons orbiting at 100px radius in reverse */
+.inner-circle .animate-orbit:nth-child(1) { 
+  animation: orbit-inner-1 15s linear infinite reverse; 
+}
+.inner-circle .animate-orbit:nth-child(2) { 
+  animation: orbit-inner-2 15s linear infinite reverse; 
+}
+.inner-circle .animate-orbit:nth-child(3) { 
+  animation: orbit-inner-3 15s linear infinite reverse; 
+}
+.inner-circle .animate-orbit:nth-child(4) { 
+  animation: orbit-inner-4 15s linear infinite reverse; 
+}
+.inner-circle .animate-orbit:nth-child(5) { 
+  animation: orbit-inner-5 15s linear infinite reverse; 
+}
+
+/* Outer circle animations - icon centers follow exact orbit */
+@keyframes orbit-outer-1 {
+  0% { transform: translate(-50%, -50%) rotate(0deg) translateX(160px) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg) translateX(160px) rotate(-360deg); }
+}
+
+@keyframes orbit-outer-2 {
+  0% { transform: translate(-50%, -50%) rotate(72deg) translateX(160px) rotate(-72deg); }
+  100% { transform: translate(-50%, -50%) rotate(432deg) translateX(160px) rotate(-432deg); }
+}
+
+@keyframes orbit-outer-3 {
+  0% { transform: translate(-50%, -50%) rotate(144deg) translateX(160px) rotate(-144deg); }
+  100% { transform: translate(-50%, -50%) rotate(504deg) translateX(160px) rotate(-504deg); }
+}
+
+@keyframes orbit-outer-4 {
+  0% { transform: translate(-50%, -50%) rotate(216deg) translateX(160px) rotate(-216deg); }
+  100% { transform: translate(-50%, -50%) rotate(576deg) translateX(160px) rotate(-576deg); }
+}
+
+@keyframes orbit-outer-5 {
+  0% { transform: translate(-50%, -50%) rotate(288deg) translateX(160px) rotate(-288deg); }
+  100% { transform: translate(-50%, -50%) rotate(648deg) translateX(160px) rotate(-648deg); }
+}
+
+/* Inner circle animations - 5 icons evenly distributed */
+@keyframes orbit-inner-1 {
+  0% { transform: translate(-50%, -50%) rotate(0deg) translateX(100px) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+
+@keyframes orbit-inner-2 {
+  0% { transform: translate(-50%, -50%) rotate(72deg) translateX(100px) rotate(-72deg); }
+  100% { transform: translate(-50%, -50%) rotate(432deg) translateX(100px) rotate(-432deg); }
+}
+
+@keyframes orbit-inner-3 {
+  0% { transform: translate(-50%, -50%) rotate(144deg) translateX(100px) rotate(-144deg); }
+  100% { transform: translate(-50%, -50%) rotate(504deg) translateX(100px) rotate(-504deg); }
+}
+
+@keyframes orbit-inner-4 {
+  0% { transform: translate(-50%, -50%) rotate(216deg) translateX(100px) rotate(-216deg); }
+  100% { transform: translate(-50%, -50%) rotate(576deg) translateX(100px) rotate(-576deg); }
+}
+
+@keyframes orbit-inner-5 {
+  0% { transform: translate(-50%, -50%) rotate(288deg) translateX(100px) rotate(-288deg); }
+  100% { transform: translate(-50%, -50%) rotate(648deg) translateX(100px) rotate(-648deg); }
+}

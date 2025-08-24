@@ -5,15 +5,15 @@ const Services: React.FC = () => {
   const services = [
     {
       title: 'From Idea to Impact.',
-      description: 'DevTribe is your AI consulting partner — from problem discovery to full-scale deployment. We build with OpenAI, Gemini, LLaMA, Sarvam AI, and more to meet your business goals.'
+      description: 'DevTribe is your all-in-one freelance partner — from concept to deployment. We build complete solutions including mobile apps, websites, AI applications, and AI startups. Full-stack development with frontend, backend, and database integration.'
     },
     {
       title: 'Secure by Design.',
-      description: 'Whether using open-source or proprietary LLMs, we embed enterprise-grade privacy, governance, and compliance — making you production-ready from day one.'
+      description: 'Enterprise-grade development with AI integrations, chatbots, RAG systems, computer vision, and LLM implementations. We embed privacy, governance, and compliance — making you production-ready from day one.'
     },
     {
       title: 'Production Grade AI.',
-      description: 'We go beyond prototypes — delivering full-stack AI systems like chatbots, vision AI, and recommendations that scale reliably across web, mobile, and cloud.'
+      description: 'We go beyond prototypes — delivering full-stack AI systems, agentic workflows, and intelligent applications that scale reliably. Plus, we handle your professional presence with LinkedIn optimization and resume development.'
     }
   ];
 
