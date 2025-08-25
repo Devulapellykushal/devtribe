@@ -4,7 +4,6 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
 import ReviewsMarquee from './components/magicui/ReviwewsMarquee';
-import OrbitingCirclesDemo from './components/OrbitingCirclesDemo';
 import Particles from './components/Particles';
 import Process from './components/Process';
 import Services from './components/Services';
@@ -73,10 +72,11 @@ const App = () => {
       
       <main>
         <Hero />
-        <OrbitingCirclesDemo />
         <Services />
         
         <Process />
+        {/* <OrbitingCirclesDemo /> */}
+
         <Contact />
       </main>
       
